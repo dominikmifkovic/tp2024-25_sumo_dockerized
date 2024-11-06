@@ -1,0 +1,6 @@
+# Tests the flowrouter
+flowrouter
+flowFromRoutes
+flowFromEdgeData
+edgeDataFromFlow
+mapDetectors

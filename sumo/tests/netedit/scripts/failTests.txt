@@ -1,0 +1,8 @@
+-tp appdata=netedit.gui
+network/trafficlights/joined/create/copy
+network/trafficlights/joined/create/disjoin
+network/trafficlights/joined/create/id
+network/trafficlights/joined/create/type
+network/trafficlights/single/phases/NEMA/buttons/add/rederrorScreenshot/differenterrorScreenshot/differenterrorScreenshot/differenterrorScreenshot/differenterrorScreenshot/differenterrorScreenshot/different
+network/trafficlights/single/phases/NEMA/buttons/add/yellowerrorScreenshot/different/errorScreenshot/different/errorScreenshot/different/errorScreenshot/different/errorScreenshot/different/errorScreenshot/different
+network/trafficlights/single/phases/delay_based/buttons/moveup

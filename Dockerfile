@@ -13,8 +13,7 @@ RUN apt-get update && \
     libfox-1.6-dev \
     libgdal-dev \
     && apt-get clean
-RUN pip3 install --no-cache-dir numpy scipy traci==1.12.0 libsumo
-RUN git clone https://github.com/eclipse/sumo.git /sumo
+COPY sumo /sumo
 ENV SUMO_HOME=/sumo
 RUN ls /sumo && ls /sumo/CMakeLists.txt
 WORKDIR /sumo
