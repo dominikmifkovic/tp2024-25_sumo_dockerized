@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  sumo:
+    ports:
+      - "1337:1337"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sumo_headless
+    volumes:
+      - ./simulations:/simulations
+    command: sumo --remote-port 1337 -c /simulations/sim1/osm.sumocfg
+    depends_on:
+      - analyzer
+  analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile.datacollect
+    container_name: sumo_datacollect
+    volumes:
+      - ./results:/results
+      - ./datacollect.py:/datacollect.py
+    working_dir: /
+    command: python3 /datacollect.py
+
