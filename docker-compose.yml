@@ -1,27 +1,14 @@
 version: '3.8'
 services:
-  sumo:
+  sumo_data_collector:
     image: ghcr.io/dominikmifkovic/tp2024-25_sumo_dockerized:latest
-    ports:
-      - "1337:1337"
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: sumo_headless
+    container_name: sumo_dockerized
+    ports:
+      - "1337:1337"
     volumes:
       - ./simulations:/simulations
-    command: sumo --remote-port 1337 -c /simulations/sim1/osm.sumocfg
-    depends_on:
-      - analyzer
-
-  analyzer:
-    image: ghcr.io/dominikmifkovic/tp2024-25_sumo_dockerized_analyzer:latest
-    build:
-      context: .
-      dockerfile: Dockerfile.datacollect
-    container_name: sumo_datacollect
-    volumes:
       - ./results:/results
-      - ./datacollect.py:/datacollect.py
-    working_dir: /
-    command: python3 /datacollect.py
+    command: /entrypoint.sh

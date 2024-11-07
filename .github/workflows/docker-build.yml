@@ -32,8 +32,3 @@ jobs:
         run: |
           docker build -t ghcr.io/dominikmifkovic/tp2024-25_sumo_dockerized:latest -f Dockerfile .
           docker push ghcr.io/dominikmifkovic/tp2024-25_sumo_dockerized:latest
-
-      - name: Build and Push Analyzer Image
-        run: |
-          docker build -t ghcr.io/dominikmifkovic/tp2024-25_sumo_dockerized_analyzer:latest -f Dockerfile.datacollect .
-          docker push ghcr.io/dominikmifkovic/tp2024-25_sumo_dockerized_analyzer:latest

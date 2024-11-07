@@ -12,7 +12,8 @@ RUN apt-get update && \
     libproj-dev \
     libfox-1.6-dev \
     libgdal-dev \
-    && apt-get clean
+    dos2unix && apt-get clean
+RUN pip3 install numpy scipy traci==1.12.0
 COPY sumo /sumo
 ENV SUMO_HOME=/sumo
 RUN ls /sumo && ls /sumo/CMakeLists.txt
@@ -24,6 +25,9 @@ RUN mkdir -p build/cmake-build && \
     make install
 ENV PYTHONPATH="/sumo/tools:${PYTHONPATH}"
 ENV PATH="/usr/local/bin:$PATH"
-WORKDIR /simulations
+COPY datacollect.py /datacollect.py
 EXPOSE 1337
-CMD ["sumo", "--help"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+RUN dos2unix /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
