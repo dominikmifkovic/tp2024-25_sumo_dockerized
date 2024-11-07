@@ -26,6 +26,7 @@ RUN mkdir -p build/cmake-build && \
 ENV PYTHONPATH="/sumo/tools:${PYTHONPATH}"
 ENV PATH="/usr/local/bin:$PATH"
 WORKDIR /
+COPY ./simulations /simulations
 COPY datacollect.py /datacollect.py
 EXPOSE 1337
 COPY entrypoint.sh /entrypoint.sh
