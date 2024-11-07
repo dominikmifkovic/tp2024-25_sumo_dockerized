@@ -32,6 +32,8 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: build and push ghcr
+        env:
+          COMPOSE_HTTP_TIMEOUT: 99999
         run: |
           docker-compose -f docker-compose.yml build
           docker-compose -f docker-compose.yml push
