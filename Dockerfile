@@ -27,6 +27,8 @@ ENV PYTHONPATH="/sumo/tools:${PYTHONPATH}"
 ENV PATH="/usr/local/bin:$PATH"
 WORKDIR /
 COPY ./simulations /simulations
+RUN mkdir results
+COPY ./results /results
 COPY datacollect.py /datacollect.py
 EXPOSE 1337
 COPY entrypoint.sh /entrypoint.sh
