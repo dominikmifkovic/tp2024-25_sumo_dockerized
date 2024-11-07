@@ -1,4 +1,4 @@
-name: Build and Run SUMO Dockerized
+name: SUMO Dockerized
 
 on:
   push:
@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: checkout
         uses: actions/checkout@v2
       
-      - name: Set up Docker Buildx
+      - name: setup buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Install Docker Compose
+      - name: install compose
         run: |
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Build and push Docker image
+      - name: build and push image
         run: |
           docker-compose -f docker-compose.yml up --build -d
 
-      - name: Verify containers
+      - name: verify
         run: docker ps
