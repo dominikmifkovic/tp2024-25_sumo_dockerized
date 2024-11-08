@@ -24,6 +24,7 @@ RUN mkdir -p build/cmake-build && \
           -DSUMO_BUILD_SUMOPY=FALSE \
           -DSUMO_BUILD_NETCONVERT=TRUE \
           -DSUMO_BUILD_NETGENERATE=TRUE \
+          -DCMAKE_CXX_FLAGS="-Wno-cpp -w" \
           ../.. && \
     make -j$(nproc) && \
     make install
