@@ -2,7 +2,7 @@ import traci
 import json
 
 SUMO_PORT = 1337
-SUMO_IP = 'localhost'
+SUMO_IP = 'sumo_dockerized'
 try:
     traci.init(port=SUMO_PORT, host=SUMO_IP)
     print("Connected to SUMO.")
